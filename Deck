@@ -1,0 +1,136 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package cartas;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Random;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author work pc
+ */
+public class Deck {
+    
+     LinkedList<String> deckofcards = new LinkedList<String>();
+    
+    //atributos
+    private String[] color;
+    private String[] valor;
+    private String[] tipo;
+    
+    //Constructor-funsiones
+   Card  Card = new  Card ();
+
+    public  void  ListCard (){
+        String  [] tipo = Card.gettipo ();
+        String  [] color = Card.getcolor();
+        String  [] valor = Card.getvalor();
+    
+      String carta = "";
+        int iterar = 0;
+        int cambiarColor = 0;
+
+        for (int i = 0; i< tipo.length;i++) {
+            for (int j = 0; j < valor.length; j++) {
+                iterar++;
+                if (iterar >= 27) {
+                    cambiarColor = 1;
+                }
+                carta = "{" + tipo[i] + "}" + "," + "{" + color[cambiarColor] + "}" + "," + "{" + valor[j] + "}";
+                deckofcards.add(carta);
+            }
+        }
+    }
+    
+    public void shuffle(
+    ){
+      Collections.shuffle(deckofcards);
+      for(String x : deckofcards){
+      System.out.println(x);}
+    }
+    public Card head(){
+        try {
+            System.out.println("Su carta es");
+            System.out.println(deckofcards.getFirst());
+            deckofcards.removeFirst();
+        } catch(Exception e){
+            System.out.println("Se acabaron las cartas, se dara por terminado el programa");
+            System.exit(0);
+        }
+        System.out.println("Quedan " + deckofcards.size() + " cartas");
+         return null;
+    }
+        
+     
+    public void pick (){
+
+        int aleatorio  = 0;
+        Random random = new Random();
+
+        aleatorio = (int) (random.nextDouble() * deckofcards.size());
+
+        try {
+            System.out.println("Su carta es");
+            System.out.println(deckofcards.get(aleatorio));
+            deckofcards.remove(aleatorio);
+        }catch(Exception e){
+            System.out.println("Se acabaron las cartas, se dara por terminado el programa");
+            System.exit(0);
+        }
+        System.out.println("Quedan " + deckofcards.size() + " cartas");
+
+    }
+    
+    public void hand (){
+
+        String [] misCartas = new String[3];
+        int aleatorio  = 0;
+        Random random = new Random();
+
+        for (int i = 0; i< misCartas.length; i++){
+            aleatorio = (int) (random.nextDouble() * deckofcards.size());
+            try {
+                misCartas[i] = deckofcards.get(aleatorio );
+                System.out.println(deckofcards.getFirst());                
+                deckofcards.remove(aleatorio);
+            } catch (Exception e){
+                System.out.println("Se acabaron las cartas, se dara por terminado el programa");
+                System.exit(0);
+            }
+        }
+
+        for (String cartas: misCartas){
+            System.out.println(cartas);
+        }
+        System.out.println("Quedan " + deckofcards.size() + " cartas");
+     }
+
+    public void cambio (){
+ 
+        int aleatorio  = 0;
+        int num;
+        /*String [] misCartas = new String[0];*/
+        Random random = new Random();
+       int Chan = Integer.parseInt(JOptionPane.showInputDialog("Del 0 al 5 ingresa el número de cartas que quieres cambiar"));
+
+        aleatorio = (int) (random.nextDouble() * deckofcards.size());
+        for(int i =0; i < Chan; i++){
+        try {
+            System.out.println("Su carta es");
+            System.out.println(deckofcards.get(aleatorio));
+            deckofcards.remove(aleatorio);
+        }catch(Exception e){
+            System.out.println("Se acabaron las cartas, se dara por terminado el programa");
+            System.exit(0);
+        }
+        System.out.println("Quedan " + deckofcards.size() + " cartas");
+         
+        }
+        
+         }
+}

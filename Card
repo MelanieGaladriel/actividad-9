@@ -1,0 +1,47 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package cartas;
+
+/**
+ *
+ * @author work pc
+ */
+public class Card {
+    
+    //Variables de la carta 
+      String [] tipo = {"Diamantes","Corazones","Picas","Treboles"};
+    String [] color = {"Rojo","Negro"};
+    String [] valor = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+
+    public Card(){
+
+    }
+
+
+    public String[] gettipo() {
+        return tipo;
+    }
+
+    public void settipo(String[] tipo) {
+        this.tipo = tipo;
+    }
+
+    public String[] getcolor() {
+        return color;
+    }
+
+    public void setcolor(String[] color) {
+        this.color = color;
+    }
+
+    public String[] getvalor() {
+        return valor;
+    }
+
+    public void setvalor(String[] valor) {
+        this.valor = valor;
+    }
+       
+}
